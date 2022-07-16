@@ -6,12 +6,12 @@ function App() {
   const [data, setData] = useState({ list: [{
     "id": 0,
     "metadata": {
-      "Background": "string",
-      "Left_Eye": "string",
-      "Face": "string",
-      "Right_Eye": "string",
-      "Mouth": "string",
-      "Accessory": "string",
+      "background": "string",
+      "left_Eye": "string",
+      "face": "string",
+      "right_Eye": "string",
+      "mouth": "string",
+      "accessory": "string",
       "score": 0
     }
   }] });
@@ -49,12 +49,12 @@ function App() {
       {data.list.map(item => (
               <tr key={item.id}>
                 <td>{item.id}</td>
-                <td>{item.metadata.Background}</td>
-                <td>{item.metadata.Left_Eye}</td>
-                <td>{item.metadata.Face}</td>
-                <td>{item.metadata.Right_Eye}</td>
-                <td>{item.metadata.Mouth}</td>
-                <td>{item.metadata.Accessory}</td>
+                <td>{item.metadata.background}</td>
+                <td>{item.metadata.left_Eye}</td>
+                <td>{item.metadata.face}</td>
+                <td>{item.metadata.right_Eye}</td>
+                <td>{item.metadata.mouth}</td>
+                <td>{item.metadata.accessory}</td>
                 <td>{item.metadata.score}</td>
               </tr>
             ))}
