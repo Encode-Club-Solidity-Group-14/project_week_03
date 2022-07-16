@@ -6,31 +6,31 @@ export class MetadataDto {
     description: 'Name of this object',
     examples: ['Foo', 'Bar', 'Steven'],
   })
-  name: string;
+  Background: string;
   @ApiProperty({
     required: false,
-    description: 'Description for this object',
+    description: 'Background Colour',
   })
-  description?: string;
+  Left_Eye?: string;
   @ApiProperty({
     required: false,
-    description: 'Author of this object',
+    description: 'Left eye attribute',
   })
-  author?: string;
+  Face?: string;
   @ApiProperty({
     required: false,
-    description: 'Timestamp of creation date of this object',
+    description: 'Face',
   })
-  timestamp?: number;
+  Right_Eye?: string;
   @ApiProperty({
     required: false,
-    description: 'Given type for this object',
+    description: 'Right Eye',
     examples: ['Document', 'Meme', 'Dolphin', 'Undefined'],
   })
-  type?: string;
+  Mouth?: string;
   @ApiProperty({
     required: false,
-    description: 'Given class for this object',
+    description: 'Mouth',
     examples: [
       'Legendary',
       'Common',
@@ -42,10 +42,10 @@ export class MetadataDto {
       'Steven',
     ],
   })
-  class?: string;
+  Accessory?: string;
   @ApiProperty({
     required: false,
-    description: 'Given score for this object',
+    description: 'Accessory',
     examples: [0, -1, 42, 9876543210],
   })
   score?: number;
