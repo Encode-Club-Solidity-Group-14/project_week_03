@@ -7,12 +7,12 @@
             "size": 199765
         },
         "metadata": {
-            "name": "Grin Face",
-            "description": "Random Faces",
-            "author": "Encode Bootcamp",
-            "timestamp": 0,
-            "type": "Round Green",
-            "class": "Swirl Purple",
+            "background": "Black",
+            "left_eye": "X Aqua",
+            "face": "Round Green",
+            "right_eye": "Swirl Purple",
+            "mouth": "Grin Blue",
+            "accessory": "Horns Blue",
             "score": 0
         },
         "ipfs": {
@@ -68,12 +68,12 @@
             "size": 176361
         },
         "metadata": {
-            "name": "Grin Pink",
-            "description": "Random Faces",
-            "author": "Encode Bootcamp",
-            "timestamp": 0,
-            "type": "Left Eye",
-            "class": "Tear Tattoo Orange",
+            "background": "Black",
+            "left_eye": "X Aqua",
+            "face": "Round Green",
+            "right_eye": "X Aqua",
+            "mouth": "Grin Pink",
+            "accessory": "Tear Tattoo Orange",
             "score": 0
         },
         "ipfs": {
@@ -129,12 +129,12 @@
             "size": 181409
         },
         "metadata": {
-            "name": "Round Blue",
-            "description": "Random Faces",
-            "author": "Encode Bootcamp",
-            "timestamp": 0,
-            "type": "Swirl Purple",
-            "class": "Tear Tattoo Aqua",
+            "background": "Black",
+            "left_eye": "Swirl Green",
+            "face": "Round Blue",
+            "right_eye": "Swirl Purple",
+            "mouth": "Grin Blue",
+            "accessory": "Tear Tattoo Aqua",
             "score": 0
         },
         "ipfs": {
@@ -190,12 +190,12 @@
             "size": 180648
         },
         "metadata": {
-            "name": "Green",
-            "description": "Random Faces",
-            "author": "Encode Bootcamp",
-            "timestamp": 0,
-            "type": "White",
-            "class": "Brown",
+            "background": "Black",
+            "left_eye": "Swirl Orange",
+            "face": "Round Orange",
+            "right_eye": "Swirl Blue",
+            "mouth": "Grin Aqua",
+            "accessory": "Tear Tattoo Red",
             "score": 0
         },
         "ipfs": {
@@ -251,12 +251,12 @@
             "size": 197581
         },
         "metadata": {
-            "name": "White",
-            "description": "Random Faces",
-            "author": "Encode Bootcamp",
-            "timestamp": 0,
-            "type": "Brown",
-            "class": "Green",
+            "background": "Black",
+            "left_eye": "Swirl Purple",
+            "face": "Round Pink",
+            "right_eye": "Swirl Orange",
+            "mouth": "Grin Red",
+            "accessory": "Horns Orange",
             "score": 0
         },
         "ipfs": {
@@ -312,12 +312,12 @@
             "size": 199005
         },
         "metadata": {
-            "name": "Yellow",
-            "description": "Random Faces",
-            "author": "Encode Bootcamp",
-            "timestamp": 0,
-            "type": "Orange",
-            "class": "Blue",
+            "background": "Black",
+            "left_eye": "Swirl Red",
+            "face": "Round Blue",
+            "right_eye": "Swirl Pink",
+            "mouth": "Grin Blue",
+            "accessory": "Horns Orange",
             "score": 0
         },
         "ipfs": {
@@ -373,12 +373,12 @@
             "size": 180905
         },
         "metadata": {
-            "name": "Orange",
-            "description": "Random Faces",
-            "author": "Encode Bootcamp",
-            "timestamp": 0,
-            "type": "Yellow",
-            "class": "Green",
+            "background": "Black",
+            "left_eye": "Aqua",
+            "face": "Round Purple",
+            "right_eye": "Swirl Blue",
+            "mouth": "Grin Aqua",
+            "accessory": "Tear Tattoo Yellow",
             "score": 0
         },
         "ipfs": {
@@ -434,12 +434,12 @@
             "size": 178452
         },
         "metadata": {
-            "name": "Rainbow",
-            "description": "Random Faces",
-            "author": "Encode Bootcamp",
-            "timestamp": 0,
-            "type": "Yellow",
-            "class": "Purple",
+            "background": "Black",
+            "left_eye": "Swirl Red",
+            "face": "Round Blue",
+            "right_eye": "X Aqua",
+            "mouth": "Grin Green",
+            "accessory": "Tear Tattoo Red",
             "score": 0
         },
         "ipfs": {
@@ -495,12 +495,12 @@
             "size": 173249
         },
         "metadata": {
-            "name": "Special",
-            "description": "Random Faces",
-            "author": "Encode Bootcamp",
-            "timestamp": 0,
-            "type": "Rainbow",
-            "class": "Double Rainbow",
+            "background": "Black",
+            "left_eye": "Swirl Orange",
+            "face": "Round Orange",
+            "right_eye": "X Green",
+            "mouth": "Grin Yellow",
+            "accessory": "Tear Tattoo Orange",
             "score": 0
         },
         "ipfs": {
@@ -556,12 +556,12 @@
             "size": 171264
         },
         "metadata": {
-            "name": "Cool",
-            "description": "Random Faces",
-            "author": "Encode Bootcamp",
-            "timestamp": 0,
-            "type": "Ice",
-            "class": "Grey Rainbow",
+            "background": "Black",
+            "left_eye": "X Pink",
+            "face": "Round Aqua",
+            "right_eye": "X Aqua",
+            "mouth": "Grin Yellow",
+            "accessory": "Tear Tattoo Red",
             "score": 0
         },
         "ipfs": {
