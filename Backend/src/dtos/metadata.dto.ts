@@ -6,28 +6,28 @@ export class MetadataDto {
     description: 'Name of this object',
     examples: ['Foo', 'Bar', 'Steven'],
   })
-  Background: string;
+  background: string;
   @ApiProperty({
     required: false,
     description: 'Background Colour',
   })
-  Left_Eye?: string;
+  left_eye?: string;
   @ApiProperty({
     required: false,
     description: 'Left eye attribute',
   })
-  Face?: string;
+  face?: string;
   @ApiProperty({
     required: false,
     description: 'Face',
   })
-  Right_Eye?: string;
+  right_eye?: string;
   @ApiProperty({
     required: false,
     description: 'Right Eye',
     examples: ['Document', 'Meme', 'Dolphin', 'Undefined'],
   })
-  Mouth?: string;
+  mouth?: string;
   @ApiProperty({
     required: false,
     description: 'Mouth',
@@ -42,7 +42,7 @@ export class MetadataDto {
       'Steven',
     ],
   })
-  Accessory?: string;
+  accessory?: string;
   @ApiProperty({
     required: false,
     description: 'Accessory',
