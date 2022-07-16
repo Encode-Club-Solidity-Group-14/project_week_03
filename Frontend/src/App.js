@@ -7,9 +7,9 @@ function App() {
     "id": 0,
     "metadata": {
       "background": "string",
-      "left_Eye": "string",
+      "left_eye": "string",
       "face": "string",
-      "right_Eye": "string",
+      "right_eye": "string",
       "mouth": "string",
       "accessory": "string",
       "score": 0
@@ -50,9 +50,9 @@ function App() {
               <tr key={item.id}>
                 <td>{item.id}</td>
                 <td>{item.metadata.background}</td>
-                <td>{item.metadata.left_Eye}</td>
+                <td>{item.metadata.left_eye}</td>
                 <td>{item.metadata.face}</td>
-                <td>{item.metadata.right_Eye}</td>
+                <td>{item.metadata.right_eye}</td>
                 <td>{item.metadata.mouth}</td>
                 <td>{item.metadata.accessory}</td>
                 <td>{item.metadata.score}</td>
