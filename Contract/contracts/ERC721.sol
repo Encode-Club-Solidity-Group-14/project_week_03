@@ -20,6 +20,11 @@ contract NFT is ERC721, ERC721URIStorage, Ownable {
         super._burn(tokenId);
     }
 
+    function burn(uint256 tokenId) public {
+        require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: caller is not token owner nor approved");
+        _burn(tokenId);
+    }
+
     function tokenURI(uint256 tokenId)
         public
         view
