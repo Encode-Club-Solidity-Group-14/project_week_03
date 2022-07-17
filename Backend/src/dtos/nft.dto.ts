@@ -1,10 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { MetadataDto } from './metadata.dto';
 
-export class SetMetadataDto {
+export class NftMetadataDto {
   @ApiProperty({
     required: true,
-    description: 'File metadata',
+    description: 'NFT metadata',
     type: MetadataDto
   })
   metadata: MetadataDto;
