@@ -7,8 +7,10 @@ import { MetadataDto } from './dtos/metadata.dto';
 import { FileData } from './schemas/file-data.interface';
 import { create } from 'ipfs-http-client';
 import { createReadStream } from 'fs';
+//import { BigNumber, ethers } from 'ethers';
 import { IPFSHTTPClient } from 'ipfs-http-client/types/src/types';
 import { concat as uint8ArrayConcat } from 'uint8arrays/concat';
+//import * as nftJson from '../../Contract/artifacts/contracts/ERC721.sol/NFT.json';
 
 const DB_PATH = '../db/db.json';
 
@@ -17,8 +19,12 @@ export class AppService {
   db: JsonDB;
   lastId: number;
   ipfsClient: IPFSHTTPClient;
+  //contractSignedInstance: ethers.Contract;
 
-  constructor() {
+  constructor(    
+   // private providerService: ProviderService,
+  //  private signerService: SignerService
+    ) {
     this.db = new JsonDB(new Config(DB_PATH, true, true, '/'));
     this.ipfsClient = create({
       host: 'localhost',
@@ -30,25 +36,37 @@ export class AppService {
       data && Object.keys(data).length > 0
         ? Math.max(...Object.keys(data).map((key) => Number(key)))
         : -1;
+
+    this.setupContractInstances();
   }
 
-  pushFile(file: FileDataDto) {
+  setupContractInstances() {
+    const contractAddress = process.env.TOKEN_CONTRACT_ADDRESS;
+    if (!contractAddress || contractAddress.length === 0) return;
+   // this.contractSignedInstance = new ethers.Contract(
+     // contractAddress,
+     // nftJson.abi,
+     // this.signerService.signer,
+   // );
+  }
+  
+
+  pushFileToNft(fileId: number, file: FileDataDto) {
     const obj = new FileData(file);
-    const fileId = ++this.lastId;
-    this.db.push(`/${fileId}`, obj);
-    return fileId;
-  }
-
-  setMetadata(fileId: number, metadata: MetadataDto) {
-    let file: any;
     try {
-      file = this.db.getData(`/${fileId}/file`);
+      file = this.db.getData(`/${fileId}/metadata`);
     } catch (error) {
       return { error };
     }
     if (!file) return false;
-    this.db.push(`/${fileId}/metadata`, metadata);
+    this.db.push(`/${fileId}`, obj);
     return this.get(fileId);
+  }
+
+  createNft(metadata: MetadataDto) {
+    const nftId = ++this.lastId;
+    this.db.push(`/${nftId}/metadata`, metadata);
+    return nftId;
   }
 
   getAll() {
@@ -59,11 +77,6 @@ export class AppService {
     return this.db.getData(`/${fileId}`);
   }
 
-  getFileStream(filename: string) {
-    const fileStream = createReadStream(`../upload/${filename}`);
-    return new StreamableFile(fileStream);
-  }
-
   isIpfsNodeOnline() {
     try {
       const state = this.ipfsClient.isOnline();
@@ -71,6 +84,19 @@ export class AppService {
     } catch (error) {
       return error;
     }
+  }
+
+  async mint(){
+    for(let i = 0; i <= this.lastId; i++){
+  //    const nftURI = "https://ipfs.io/ipfs/" +this.get(i).ipfs.path;
+   //   const tx = await this.contractSignedInstance.safeMint(
+   //     "0xfb542204Ed21212258a8DD6288C96676970382B7",
+   //     BigNumber.from(i),
+   //     nftURI
+   //   );
+    //  console.log("Minted: " + tx);
+    }
+
   }
 
   async saveToIpfs(fileId: number) {
