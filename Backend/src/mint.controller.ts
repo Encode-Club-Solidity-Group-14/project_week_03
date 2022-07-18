@@ -14,7 +14,7 @@ import {Controller,Get} from '@nestjs/common';
   
     @Get('mint')
     @ApiOperation({
-      summary: 'Mint NFTaa',
+      summary: 'Mint NFT',
       description: 'Mint all NFTs',
     })
     @ApiResponse({
@@ -24,6 +24,7 @@ import {Controller,Get} from '@nestjs/common';
     })
     async mint() {
       try {
+        console.log("minting");
         return this.appService.mint();
       } catch (error) {
         return error;
