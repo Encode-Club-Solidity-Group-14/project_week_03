@@ -7,10 +7,12 @@ import { MetadataDto } from './dtos/metadata.dto';
 import { FileData } from './schemas/file-data.interface';
 import { create } from 'ipfs-http-client';
 import { createReadStream } from 'fs';
-//import { BigNumber, ethers } from 'ethers';
+import { BigNumber, ethers } from 'ethers';
 import { IPFSHTTPClient } from 'ipfs-http-client/types/src/types';
 import { concat as uint8ArrayConcat } from 'uint8arrays/concat';
-//import * as nftJson from '../../Contract/artifacts/contracts/ERC721.sol/NFT.json';
+import * as nftJson from 'src/assets/NFT.json';
+import { ProviderService } from './shared/services/provider/provider.service';
+import { SignerService } from './shared/services/signer/signer.service';
 
 const DB_PATH = '../db/db.json';
 
@@ -19,11 +21,11 @@ export class AppService {
   db: JsonDB;
   lastId: number;
   ipfsClient: IPFSHTTPClient;
-  //contractSignedInstance: ethers.Contract;
+  contractSignedInstance: ethers.Contract;
 
   constructor(    
-   // private providerService: ProviderService,
-  //  private signerService: SignerService
+    private providerService: ProviderService,
+    private signerService: SignerService
     ) {
     this.db = new JsonDB(new Config(DB_PATH, true, true, '/'));
     this.ipfsClient = create({
@@ -42,12 +44,14 @@ export class AppService {
 
   setupContractInstances() {
     const contractAddress = process.env.TOKEN_CONTRACT_ADDRESS;
+    console.log("address");
+    console.log(contractAddress);
     if (!contractAddress || contractAddress.length === 0) return;
-   // this.contractSignedInstance = new ethers.Contract(
-     // contractAddress,
-     // nftJson.abi,
-     // this.signerService.signer,
-   // );
+     this.contractSignedInstance = new ethers.Contract(
+       contractAddress,
+        nftJson.abi,
+       this.signerService.signer,
+     );
   }
   
 
@@ -88,13 +92,24 @@ export class AppService {
 
   async mint(){
     for(let i = 0; i <= this.lastId; i++){
-  //    const nftURI = "https://ipfs.io/ipfs/" +this.get(i).ipfs.path;
-   //   const tx = await this.contractSignedInstance.safeMint(
-   //     "0xfb542204Ed21212258a8DD6288C96676970382B7",
-   //     BigNumber.from(i),
-   //     nftURI
-   //   );
-    //  console.log("Minted: " + tx);
+       const nftURI = "https://ipfs.io/ipfs/" +this.get(i).ipfs.path;
+      
+       const add = await this.contractSignedInstance.address;
+      console.log(add);
+      //const balanceOf = await this.contractSignedInstance.balanceOf("0xfb542204Ed21212258a8DD6288C96676970382B7");
+      //console.log(balanceOf);
+      console.log("Minting... ");
+      console.log("to address: 0xfb542204Ed21212258a8DD6288C96676970382B7");
+      console.log("tokenId: " + BigNumber.from(i));
+      console.log("nftURI: " + nftURI);
+       const tx = await this.contractSignedInstance.safeMint(
+         "0xfb542204Ed21212258a8DD6288C96676970382B7",
+         BigNumber.from("10"),
+         nftURI
+       );
+
+      
+       console.log("Minted: " + tx);
     }
 
   }

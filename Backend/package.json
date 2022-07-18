@@ -27,6 +27,7 @@
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/swagger": "^5.2.1",
     "@types/multer": "^1.4.7",
+    "ethers": "^5.6.9",
     "ipfs-http-client": "^56.0.3",
     "node-json-db": "^1.5.0",
     "reflect-metadata": "^0.1.13",
