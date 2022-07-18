@@ -1,16 +1,30 @@
 import { expect } from "chai";
-// eslint-disable-next-line node/no-unpublished-import
-import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import { ethers } from "hardhat";
-// eslint-disable-next-line node/no-missing-import
-import { NFT } from "../typechain-types";
+import chai from "chai";
+import { beforeEach } from "mocha";
+import { Contract } from "ethers";
+import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 
-describe("NFT", function() {
- 
-    describe("when  the NFT is deployed", async () => {
-        it("has an address", async function () {
-            throw new Error("Not implemented");
-        });
-    });
 
-});
+describe("NFT is deployed", () => {
+  let nftContract: Contract;
+  let owner: SignerWithAddress;
+  let address1: SignerWithAddress;
+
+  beforeEach(async () => {
+    const nftFactory = await ethers.getContractFactory(
+      "NFT"
+    );
+    [owner, address1] = await ethers.getSigners();
+    nftContract = await nftFactory.deploy();
+  });
+
+  it("Should initialize the NFT contract", async () => {
+    expect(await nftContract).to.equal(1);
+  });
+
+  it("Should set the right owner", async () => {
+    expect(await nftContract.owner()).to.equal(await owner.address);
+  });
+     
+  });
