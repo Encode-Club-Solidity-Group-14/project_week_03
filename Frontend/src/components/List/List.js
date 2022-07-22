@@ -36,44 +36,43 @@ function List() {
     <React.Fragment>
       <MainHeader />
 
-      <Card className={classes.form}>
-        <div className="App">
-          <table>
+      {/* <Card className={classes.form}> */}
+      <div className='w-[70%] mt-[1rem] py-[3rem] mx-auto text-center rounded-[10px] shadow-[0_2px_8px_rgba(0,0,0,0.26)]'>
+          <table className='hover:table-auto border-spacing-4 w-[90%] mx-auto mb-[2rem]'>
             <thead>
-              <tr>
-                <th>Background</th>
-                <th>Left Eye</th>
-                <th>Face</th>
-                <th>Right Eye</th>
-                <th>Mouth</th>
-                <th>Accessory</th>
-                <th>Score</th>
+              <tr className='border-solid border-2 border-[#eee]'>
+                <th className='whitespace-nowrap p-[1rem] bg-[#741188] text-white'>Background</th>
+                <th className='whitespace-nowrap p-[1rem] bg-[#741188] text-white'>Left Eye</th>
+                <th className='whitespace-nowrap p-[1rem] bg-[#741188] text-white'>Face</th>
+                <th className='whitespace-nowrap p-[1rem] bg-[#741188] text-white'>Right Eye</th>
+                <th className='whitespace-nowrap p-[1rem] bg-[#741188] text-white'>Mouth</th>
+                <th className='whitespace-nowrap p-[1rem] bg-[#741188] text-white'>Accessory</th>
+                <th className='whitespace-nowrap p-[1rem] bg-[#741188] text-white'>Score</th>
               </tr>
             </thead>
             <tbody>
               {data.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.background}</td>
-                  <td>{item.left_eye}</td>
-                  <td>{item.face}</td>
-                  <td>{item.right_eye}</td>
-                  <td>{item.mouth}</td>
-                  <td>{item.accessory}</td>
-                  <td>{item.score}</td>
+                <tr key={item.id} className='border-solid border-2 border-[#eee] hover:bg-[#741188] hover:text-[#fff]'>
+                  <td className='whitespace-nowrap p-[1rem]'>{item.background}</td>
+                  <td className='whitespace-nowrap p-[1rem]'>{item.left_eye}</td>
+                  <td className='whitespace-nowrap p-[1rem]'>{item.face}</td>
+                  <td className='whitespace-nowrap p-[1rem]'>{item.right_eye}</td>
+                  <td className='whitespace-nowrap p-[1rem]'>{item.mouth}</td>
+                  <td className='whitespace-nowrap p-[1rem]'>{item.accessory}</td>
+                  <td className='whitespace-nowrap p-[1rem]'>{item.score}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-          
 
-        <Button type="submit" onClick={onLoadData} className={classes.btn}>
+
+        <Button type="submit" onClick={onLoadData} className={`${classes.btn} mx-[8px]`}>
           Load Data
         </Button>
-          <Button type="submit" onClick={onMintClicked} className={classes.btn}>
-            Mint All
-          </Button>
-        </div>
-      </Card>
+        <Button type="submit" onClick={onMintClicked} className={`${classes.btn} mx-[8px]}`}>
+          Mint All
+        </Button>
+      </div>
     </React.Fragment>
   )
 }
