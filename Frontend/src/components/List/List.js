@@ -41,13 +41,13 @@ function List() {
           <table className='hover:table-auto border-spacing-4 w-[90%] mx-auto mb-[2rem]'>
             <thead>
               <tr className='border-solid border-2 border-[#eee]'>
-                <th className='whitespace-nowrap p-[1rem]'>Background</th>
-                <th className='whitespace-nowrap p-[1rem]'>Left Eye</th>
-                <th className='whitespace-nowrap p-[1rem]'>Face</th>
-                <th className='whitespace-nowrap p-[1rem]'>Right Eye</th>
-                <th className='whitespace-nowrap p-[1rem]'>Mouth</th>
-                <th className='whitespace-nowrap p-[1rem]'>Accessory</th>
-                <th className='whitespace-nowrap p-[1rem]'>Score</th>
+                <th className='whitespace-nowrap p-[1rem] bg-[#741188] text-white'>Background</th>
+                <th className='whitespace-nowrap p-[1rem] bg-[#741188] text-white'>Left Eye</th>
+                <th className='whitespace-nowrap p-[1rem] bg-[#741188] text-white'>Face</th>
+                <th className='whitespace-nowrap p-[1rem] bg-[#741188] text-white'>Right Eye</th>
+                <th className='whitespace-nowrap p-[1rem] bg-[#741188] text-white'>Mouth</th>
+                <th className='whitespace-nowrap p-[1rem] bg-[#741188] text-white'>Accessory</th>
+                <th className='whitespace-nowrap p-[1rem] bg-[#741188] text-white'>Score</th>
               </tr>
             </thead>
             <tbody>
