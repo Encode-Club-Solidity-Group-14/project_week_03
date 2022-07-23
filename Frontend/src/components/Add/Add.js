@@ -7,6 +7,7 @@ import Button from "../UI/Button/Button";
 import MainHeader from "../MainHeader/MainHeader";
 import ImageUpload from "../image-upload/image";
 import { toast } from "react-toastify";
+import {BASE_URL} from "../../constants"
 
 function Add() {
   const [metadata, setMetadata] = useState({
@@ -50,7 +51,7 @@ function Add() {
       imageFiles)
     ) {
       const metadataResponse = await axios.post(
-        `${process.env.REACT_APP_SERVER_IP}/nfts`,
+        `${BASE_URL}/nfts`,
         { metadata },
         { headers: { "Content-Type": "application/json " } }
       );
@@ -59,7 +60,7 @@ function Add() {
         formData.append("file", imageFiles);
 
         await axios.post(
-          `${process.env.REACT_APP_SERVER_IP}/nfts/${metadataResponse.data}/image`,
+          `${BASE_URL}/nfts/${metadataResponse.data}/image`,
           formData,
           { headers: { "Content-Type": "multipart/form-data" } }
         );

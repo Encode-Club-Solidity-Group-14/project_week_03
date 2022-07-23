@@ -4,6 +4,7 @@ import axios from 'axios'
 import MainHeader from '../MainHeader/MainHeader'
 import Card from '../UI/Card/Card'
 import Button from '../UI/Button/Button'
+import {BASE_URL} from "../../constants"
 
 function List() {
   const [data, setData] = useState([])
@@ -15,7 +16,7 @@ function List() {
   }
 
   const onLoadData = async (event) => {
-const result = await axios.get(`${process.env.REACT_APP_SERVER_IP}/nfts`)
+const result = await axios.get(`${BASE_URL}/nfts`)
     const data = result.data
     let listNFT = [];
     for (var k in data) {
