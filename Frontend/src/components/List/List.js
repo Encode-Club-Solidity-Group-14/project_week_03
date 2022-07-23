@@ -4,6 +4,7 @@ import axios from 'axios'
 import MainHeader from '../MainHeader/MainHeader'
 import Card from '../UI/Card/Card'
 import Button from '../UI/Button/Button'
+import {BASE_URL} from "../../constants"
 
 function List() {
   const [data, setData] = useState([])
@@ -11,25 +12,18 @@ function List() {
   const [mintButtonDisabled, setMintButtonDisabled] = useState(false)
 
   const onMintClicked = async (event) => {
-    await axios.get('http://localhost:3001/mint')
+    await axios.get(`${process.env.REACT_APP_SERVER_IP}/mint`)
   }
 
   const onLoadData = async (event) => {
-    const result = await axios.get('http://localhost:3001/nfts')
+const result = await axios.get(`${BASE_URL}/nfts`)
     const data = result.data
     let listNFT = [];
     for (var k in data) {
-      console.log(k, data[k])
       const nft = data[k]
-      console.log('nft')
-      console.log(nft.metadata)
       listNFT.push(nft.metadata);
     }
-    console.log(listNFT);
     setData(listNFT)
-    listNFT.map((item)=>{
-      console.log(item)
-    })
   }
 
   return (
