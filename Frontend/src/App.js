@@ -4,12 +4,16 @@ import {QueryClient, QueryClientProvider} from "react-query";
 import MainPage from './components/MainPage/MainPage';
 import List from './components/List/List';
 import Add from './components/Add/Add';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
+    <>
     <QueryClientProvider client={queryClient}>
       <Router>
       <Routes>
@@ -20,6 +24,8 @@ function App() {
       </Router>
       
     </QueryClientProvider>
+     <ToastContainer />
+     </>
   );
 }
 
