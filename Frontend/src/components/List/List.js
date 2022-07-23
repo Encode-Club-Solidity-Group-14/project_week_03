@@ -19,17 +19,10 @@ const result = await axios.get(`${process.env.REACT_APP_SERVER_IP}/nfts`)
     const data = result.data
     let listNFT = [];
     for (var k in data) {
-      console.log(k, data[k])
       const nft = data[k]
-      console.log('nft')
-      console.log(nft.metadata)
       listNFT.push(nft.metadata);
     }
-    console.log(listNFT);
     setData(listNFT)
-    listNFT.map((item)=>{
-      console.log(item)
-    })
   }
 
   return (

@@ -5,7 +5,8 @@ import axios from "axios";
 import Card from "../UI/Card/Card";
 import Button from "../UI/Button/Button";
 import MainHeader from "../MainHeader/MainHeader";
-import App from "../image-upload/image";
+import ImageUpload from "../image-upload/image";
+import { toast } from "react-toastify";
 
 function Add() {
   const [metadata, setMetadata] = useState({
@@ -15,22 +16,23 @@ function Add() {
     right_eye: "",
     mouth: "",
     accessory: "",
-    score: "",
+    score: 0,
   });
-  const [imageFiles, setImageFiles] = useState([]);
+  const [imageFiles, setImageFiles] = useState(null);
+  const [images, setImages] = useState([]);
   const [status, setStatus] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (status) {
+      toast.success("NFT created successfully");
       navigate("/list");
     }
   }, [status, navigate]);
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
-    setMetadata({ [name]: value });
+    setMetadata({ ...metadata, [name]: value });
   };
 
   const submitHandler = async (event) => {
@@ -39,26 +41,29 @@ function Add() {
       metadata;
     if (
       (face,
-      mouth,
+       mouth,
       background,
       left_eye,
       right_eye,
-      metadata,
       accessory,
       score,
-      imageFiles.length > 0)
+      imageFiles)
     ) {
       const metadataResponse = await axios.post(
         `${process.env.REACT_APP_SERVER_IP}/nfts`,
-        metadata
+        { metadata },
+        { headers: { "Content-Type": "application/json " } }
       );
       if (metadataResponse.data) {
-        console.log(typeof metadataResponse.data);
-        const uploadImage = await axios.post(
+        const formData = new FormData();
+        formData.append("file", imageFiles);
+
+        await axios.post(
           `${process.env.REACT_APP_SERVER_IP}/nfts/${metadataResponse.data}/image`,
-          imageFiles
+          formData,
+          { headers: { "Content-Type": "multipart/form-data" } }
         );
-        alert("NFT created! Id: " + uploadImage.id);
+        setStatus(true);
       }
     }
   };
@@ -79,7 +84,7 @@ function Add() {
             />
           </div>
           <div className={`${classes.control}`}>
-            <label htmlFor="lefteye">Left Eye</label>
+            <label htmlFor="left_eye">Left Eye</label>
             <input
               type="text"
               id="left_eye"
@@ -99,11 +104,11 @@ function Add() {
             />
           </div>
           <div className={`${classes.control}`}>
-            <label htmlFor="rightEye">Right Eye</label>
+            <label htmlFor="right_eye">Right Eye</label>
             <input
               type="text"
               id="right_eye"
-              name="rigt_eye"
+              name="right_eye"
               onChange={onChangeHandler}
               value={metadata.right_eye}
             />
@@ -119,11 +124,11 @@ function Add() {
             />
           </div>
           <div className={`${classes.control}`}>
-            <label htmlFor="acessory">Acessory</label>
+            <label htmlFor="accessory">Acessory</label>
             <input
               type="text"
-              id="acessory"
-              name="acessory"
+              id="accessory"
+              name="accessory"
               onChange={onChangeHandler}
               value={metadata.accessory}
             />
@@ -131,7 +136,7 @@ function Add() {
           <div className={`${classes.control}`}>
             <label htmlFor="score">Score</label>
             <input
-              type="text"
+              type="number"
               id="score"
               name="score"
               onChange={onChangeHandler}
@@ -139,7 +144,12 @@ function Add() {
             />
           </div>
           <div className={classes.actions}>
-            <App imageFiles={imageFiles} setImageFiles={setImageFiles} />
+            <ImageUpload
+              imageFiles={imageFiles}
+              setImageFiles={setImageFiles}
+              images={images}
+              setImages={setImages}
+            />
             <Button type="submit" className={classes.btn}>
               Create NFT
             </Button>
